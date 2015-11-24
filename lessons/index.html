@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Router</title>
+</head>
+<body>
+  <ul id="lesson-list"></ul>
+  <script>
+    var lessons = {
+      "01-router-route-link": "Intro to Router, Router, and Link",
+      "02-nested-routes": "Basic Nested Routes",
+      "03-route-parameters": "Basic Route Parameters",
+      "04-indexroute-indexlink": "IndexRoute & IndexLink",
+      "05-routerWillLeave": "routerWillLeave",
+      "06-named-components": "Named Components",
+    }
+    var ll = document.getElementById('lesson-list')
+    Object.keys(lessons).forEach(function(key){
+      ll.innerHTML += '<li><a href="/'+ key +'">'+lessons[key]+'</a></li>'
+    })
+  </script>
+</body>
+</html>
