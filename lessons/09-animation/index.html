@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Animation</title>
+    <link rel="stylesheet" href="/shared.css" />
+    <style>
+      .page {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.5s ease-in;
+      }
+
+      .page a {
+          color: #fff;
+      }
+
+      .page1 {
+          background-color: #222;
+      }
+
+      .page2 {
+          background-color: #444;
+      }
+
+      .holder {
+          position: relative;
+          padding: 0;
+          width: 800px;
+          height: 400px;
+          text-align: center;
+          outline: 1px solid #ddd;
+          overflow: hidden;
+      }
+
+      .animation-enter {
+          top: -400px;
+          transition: all 0.5s ease-in;
+      }
+
+      .animation-enter-active {
+          top: 0;
+      }
+
+      .animation-leave {
+          top: 0px;
+          transition: all 0.5s ease-in;
+      }
+
+      .animation-leave-active {
+          top: 400px;
+      }
+    </style>
+</head>
+
+<body>
+    <a href="/"><-- Lessons</a>
+    <hr />
+    <div id="app"></div>
+    <script src="/build/shared.js"></script>
+    <script src="/build/09.js"></script>
+</body>
+
+</html>
