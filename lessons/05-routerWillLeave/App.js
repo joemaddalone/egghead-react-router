@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Lifecycle, Router, Route, IndexRoute, Link, IndexLink } from 'react-router';
+import { Lifecycle, Router, Route, Link } from 'react-router';
 
 const Home = React.createClass({
   mixins: [ Lifecycle ],
@@ -16,14 +15,10 @@ const Home = React.createClass({
 const Contact = () => <div><h1>Contact</h1><Links /></div>
 const Links = () => {
   return (
-    <ul>
-      <li>
-        <IndexLink to="/">Home</IndexLink>
-      </li>
-      <li>
-        <Link to="/contact">Contact</Link>
-      </li>
-    </ul>
+    <nav>
+      <Link to="/">Home</Link>
+      <Link to="/contact">Contact</Link>
+    </nav>
   )
 }
 

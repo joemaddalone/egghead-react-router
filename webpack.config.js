@@ -4,7 +4,7 @@ var webpack = require('webpack')
 var lessonDir = __dirname + '/lessons'
 module.exports = {
 
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
 
   entry: fs.readdirSync(lessonDir).reduce(function (entries, dir) {
     if (fs.statSync(path.join(lessonDir, dir)).isDirectory())
