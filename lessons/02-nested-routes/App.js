@@ -1,9 +1,9 @@
 import React from 'react';
-import { Router, Route, Link } from 'react-router';
+import { Router, Route, Link, hashHistory } from 'react-router';
 
-const Home = (props) => <div><h1>Home</h1><Links />{props.children}</div>
-const About = (props) => <div><h1>About</h1>{props.children}</div>
-const Contact = () => <div><h1>Contact</h1></div>
+const Home = ( props ) => <div><h1>Home</h1><Links />{props.children}</div>;
+const About = ( props ) => <div><h1>About</h1>{props.children}</div>;
+const Contact = () => <div><h1>Contact</h1></div>;
 const Links = () => {
   return (
     <nav>
@@ -13,20 +13,20 @@ const Links = () => {
       <Link to="/about/contact">Contact</Link>
     </nav>
   )
-}
+};
 
 const App = () => {
   return (
-    <Router>
-      <Route path="/" component={Home}>
-        <Route path="about" component={About}>
-          {/* <Route path="/contact" component={Contact}></Route> */}
-          <Route path="contact" component={Contact}></Route>
+    <Router history={ hashHistory }>
+      <Route path="/" component={ Home }>
+        <Route path="about" component={ About }>
+          {/* <Route path="/contact" component={ Contact }></Route> */}
+          <Route path="contact" component={ Contact }></Route>
         </Route>
       </Route>
     </Router>
-  );
-}
+  )
+};
 
 export default App;
 

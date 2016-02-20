@@ -1,7 +1,7 @@
 import React from 'react';
-import { Router, Route, Link } from 'react-router';
+import { Router, Route, Link, hashHistory } from 'react-router';
 
-const Message = (props) => <div><h1>{props.params.message || 'Hello'}</h1><Links /></div>
+const Message = ( props ) => <div><h1>{props.params.message || 'Hello'}</h1><Links /></div>
 
 const Links = () => {
   return (
@@ -11,15 +11,15 @@ const Links = () => {
       <Link to="/Yo">Yo</Link>
     </nav>
   )
-}
+};
 
 const App = () => {
   return (
-    <Router>
-      <Route path="/(:message)" component={Message} />
+    <Router history={ hashHistory }>
+      <Route path="/(:message)" component={ Message }/>
     </Router>
-  );
-}
+  )
+};
 
 export default App;
 
