@@ -8,7 +8,7 @@ module.exports = {
 
   entry: fs.readdirSync(lessonDir).reduce(function (entries, dir) {
     if (fs.statSync(path.join(lessonDir, dir)).isDirectory())
-      entries[dir.split('-')[0]] = path.join(lessonDir, dir, 'main.js')
+      entries[dir.substring(3)] = path.join(lessonDir, dir, 'main.js')
 
     return entries
   }, {}),

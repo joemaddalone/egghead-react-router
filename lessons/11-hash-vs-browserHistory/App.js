@@ -7,9 +7,9 @@ const Contact = () => <div><h1>Contact</h1><Links /></div>;
 const Links = () => {
   return (
     <nav>
-      <Link to="/10-hash-vs-browserHistory">Home</Link>
-      <Link to="/10-hash-vs-browserHistory/about">About</Link>
-      <Link to="/10-hash-vs-browserHistory/contact">Contact</Link>
+      <Link to="/11-hash-vs-browserHistory">Home</Link>
+      <Link to="/11-hash-vs-browserHistory/about">About</Link>
+      <Link to="/11-hash-vs-browserHistory/contact">Contact</Link>
     </nav>
   )
 };
@@ -17,9 +17,9 @@ const Links = () => {
 const App = () => {
   return (
     <Router history={ browserHistory }>
-      <Route path="10-hash-vs-browserHistory" component={Home}></Route>
-      <Route path="10-hash-vs-browserHistory/about" component={About}></Route>
-      <Route path="10-hash-vs-browserHistory/contact" component={Contact}></Route>
+      <Route path="11-hash-vs-browserHistory" component={Home}></Route>
+      <Route path="11-hash-vs-browserHistory/about" component={About}></Route>
+      <Route path="11-hash-vs-browserHistory/contact" component={Contact}></Route>
     </Router>
   )
 };
