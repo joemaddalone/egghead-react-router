@@ -1,29 +1,31 @@
 import React from 'react';
-import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
+import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router';
 
-const Links = () => {
-  return (
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="/other">Other</Link>
-    </nav>
-  )
-};
-const Home = () => <h1>HOME</h1>;
-const HomeBody = () => <p>This is the home body</p>;
-const Other = () => <h1>OTHER</h1>;
-const OtherBody = () => <p>This is the other body</p>;
-const Container = (props) => <div>{props.header}{props.body}<Links /></div>;
+const Home = () => <h1>Home</h1>
+const HomeBody = () => <div>this is the home body</div>
+const Other = () => <h1>Other</h1>
+const OtherBody = () => <div>this is the Other body</div>
 
-const App = () => {
-  return (
-  <Router history={ hashHistory }>
-    <Route path="/" component={ Container }>
-      <IndexRoute components={ { header: Home, body: HomeBody } } />
-      <Route path="/other" components={ { header: Other, body: OtherBody } } />
-    </Route>
-  </Router>
-  )
-};
+const Container = (props) =>
+  <div>{props.header}{props.body}<Links /></div>
+
+const Links = () =>
+  <nav>
+    <Link to="/">Home</Link>
+    <Link to="/other">Other</Link>
+  </nav>
+
+class App extends React.Component {
+  render(){
+    return (
+      <Router history={ hashHistory }>
+        <Route path="/" component={Container}>
+          <IndexRoute components={ { header: Home, body: HomeBody } }></IndexRoute>
+          <Route path="/other" components={ { header: Other, body: OtherBody} }></Route>
+        </Route>
+      </Router>
+    );
+  }
+}
 
 export default App;
