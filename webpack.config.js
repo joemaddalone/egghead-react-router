@@ -1,22 +1,29 @@
 var fs = require('fs')
 var path = require('path')
 var webpack = require('webpack')
-var lessonDir = __dirname + '/lessons'
+var lessonsDir = __dirname + '/lessons'
+
+
+function getLessons(){
+  var entries = {}
+  fs.readdirSync(lessonsDir).forEach(function(dir){
+    if(fs.statSync(path.join(lessonsDir, dir)).isDirectory()){
+      entries[dir.substring(3)] = path.join(lessonsDir, dir, 'main.js');
+    }
+  });
+  return entries
+}
+
+
 module.exports = {
 
   devtool: 'inline-source-map',
 
-  entry: fs.readdirSync(lessonDir).reduce(function (entries, dir) {
-    if (fs.statSync(path.join(lessonDir, dir)).isDirectory())
-      entries[dir.substring(3)] = path.join(lessonDir, dir, 'main.js')
-
-    return entries
-  }, {}),
+  entry: getLessons(),
 
   output: {
-    path: lessonDir + '/build',
+    path: lessonsDir + '/build',
     filename: '[name].js',
-    chunkFilename: '[id].chunk.js',
     publicPath: '/build/'
   },
 
@@ -34,10 +41,7 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin('shared.js'),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-    })
+    new webpack.optimize.CommonsChunkPlugin('shared.js')
   ]
 
 }
