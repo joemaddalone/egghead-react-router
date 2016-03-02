@@ -5,6 +5,11 @@
     <title>Animation</title>
     <link rel="stylesheet" href="/shared.css" />
     <style>
+      body {
+          overflow-y: hidden;
+          margin: 0;
+          padding: 0;
+      }
       .page {
           position: absolute;
           height: 100%;
@@ -15,7 +20,7 @@
           transition: all 0.5s ease-in;
       }
 
-      .page a {
+      a {
           color: #fff;
       }
 
@@ -27,19 +32,8 @@
           background-color: #444;
       }
 
-      .holder {
-          position: relative;
-          padding: 0;
-          width: 800px;
-          height: 400px;
-          text-align: center;
-          outline: 1px solid #ddd;
-          overflow: hidden;
-      }
-
       .animation-enter {
-          top: -400px;
-          transition: all 0.5s ease-in;
+          top: -100%;
       }
 
       .animation-enter-active {
@@ -47,18 +41,16 @@
       }
 
       .animation-leave {
-          top: 0px;
-          transition: all 0.5s ease-in;
+          top: 0;
       }
 
       .animation-leave-active {
-          top: 400px;
+          top: 100%;
       }
     </style>
 </head>
 <body>
-    <a href="/"><-- Lessons</a>
-    <hr />
+    <a href="/" style="color: #fff;position:absolute;top:15px;left: 15px;z-index:1000"><-- Lessons</a>
     <div id="app"></div>
     <script src="/build/shared.js"></script>
     <script src="/build/09.js"></script>
