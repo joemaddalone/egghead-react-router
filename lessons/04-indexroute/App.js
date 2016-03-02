@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, Link, IndexLink, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
 
 const Home = ( props ) => <div><h1>Home</h1><Links />{ props.children }</div>
 const About = ( props ) => <div><h1>About</h1></div>
@@ -7,7 +7,7 @@ const Contact = () => <div><h1>Contact</h1></div>
 const Links = () => {
   return (
     <nav>
-      <IndexLink to="/">Home</IndexLink>
+      <Link to="/">Home</Link>
       <Link to="/contact">Contact</Link>
     </nav>
   )

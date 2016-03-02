@@ -20,12 +20,8 @@ import { Lifecycle, Router, Route, Link, hashHistory } from 'react-router';
  * 2.0.x
  */
 class Home extends React.Component {
-  constructor() {
-    super();
-    this.routerWillLeave = this.routerWillLeave.bind( this );
-  }
 
-  componentWillMount() {
+   componentWillMount() {
     this.context.router.setRouteLeaveHook(
       this.props.route,
       this.routerWillLeave
@@ -33,8 +29,7 @@ class Home extends React.Component {
   }
 
   routerWillLeave( nextLocation ) {
-    let next = JSON.stringify( nextLocation )
-    return `Are you sure you want to go to ${next}?`
+    return `Are you sure you want to go to ${nextLocation.pathname}?`
   }
 
   render() {
@@ -43,7 +38,6 @@ class Home extends React.Component {
 };
 
 Home.contextTypes = { router: React.PropTypes.object.isRequired };
-
 
 const Contact = () => <div><h1>Contact</h1><Links /></div>
 const Links = () => {
