@@ -1,50 +1,33 @@
 import React from 'react';
-import { Lifecycle, Router, Route, Link, hashHistory } from 'react-router';
+import { Router, Route, Link, hashHistory } from 'react-router';
 
+// const Home = () => <div><h1>Home</h1><Links /></div>;
 
-/**
- * 1.0.x
- */
-// const Home = React.createClass({
-//   mixins: [ Lifecycle ],
-//   routerWillLeave( nextLocation ) {
-//       let next = JSON.stringify( nextLocation )
-//       return `Are you sure you want to go to ${next}?`
-//   },
-//   render() {
-//     return <div><h1>Home</h1><Links /></div>
-//   }
-// })
-
-/**
- * 2.0.x
- */
 class Home extends React.Component {
-
-   componentWillMount() {
+  componentWillMount(){
     this.context.router.setRouteLeaveHook(
       this.props.route,
       this.routerWillLeave
     )
   }
 
-  routerWillLeave( nextLocation ) {
-    return `Are you sure you want to go to ${nextLocation.pathname}?`
+  routerWillLeave( nextLocation ){
+    return `leaving home for ${nextLocation.pathname}`
   }
 
-  render() {
+  render(){
     return <div><h1>Home</h1><Links /></div>;
   }
-};
+}
 
-Home.contextTypes = { router: React.PropTypes.object.isRequired };
+Home.contextTypes = { router: React.PropTypes.object.isRequired }
 
-const Contact = () => <div><h1>Contact</h1><Links /></div>
+const About = () => <div><h1>About</h1><Links /></div>;
 const Links = () => {
   return (
     <nav>
       <Link to="/">Home</Link>
-      <Link to="/contact">Contact</Link>
+      <Link to="about">About</Link>
     </nav>
   )
 };
@@ -52,8 +35,8 @@ const Links = () => {
 const App = () => {
   return (
     <Router history={ hashHistory }>
-      <Route path="/" component={ Home }/>
-      <Route path="contact" component={ Contact }/>
+      <Route path="/" component={Home}></Route>
+      <Route path="/about" component={About}></Route>
     </Router>
   )
 };
