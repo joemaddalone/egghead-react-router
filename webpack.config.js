@@ -8,7 +8,9 @@ function getLessons(){
   var entries = {}
   fs.readdirSync(lessonsDir).forEach(function(dir){
     if(fs.statSync(path.join(lessonsDir, dir)).isDirectory()){
-      entries[dir.substring(3)] = path.join(lessonsDir, dir, 'main.js');
+      if(dir !== '00-setup'){
+        entries[dir.substring(3)] = path.join(lessonsDir, dir, 'main.js');
+      }
     }
   });
   return entries
