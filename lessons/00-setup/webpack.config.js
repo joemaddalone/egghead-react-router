@@ -5,17 +5,18 @@ module.exports = {
     filename: 'bundle.js',
   },
   devServer: {
-    inline:true,
+    inline: true,
     contentBase: './src',
     port: 3333
   },
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel'
+    loaders: [ {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'babel',
+      query: {
+        presets: [ 'es2015', 'react' ]
       }
-    ]
+    } ]
   }
 }
